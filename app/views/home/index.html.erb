@@ -1,0 +1,36 @@
+<main class="landing" data-controller="landing" data-landing-phrases-value='["Ship your ideas faster","Build with Rails 8","Stay curious, keep coding"]'>
+  <header class="landing__header">
+    <span class="landing__logo">Sample App 1</span>
+    <% if authenticated? %>
+      <nav class="landing__nav">
+        <span class="landing__greeting">Hi, <%= Current.user.email_address %></span>
+        <%= button_to "Log out", session_path, method: :delete, class: "landing__btn landing__btn--ghost" %>
+      </nav>
+    <% else %>
+      <nav class="landing__nav">
+        <%= link_to "Log in", new_session_path, class: "landing__btn landing__btn--ghost" %>
+        <%= link_to "Sign up", new_user_path, class: "landing__btn landing__btn--primary" %>
+      </nav>
+    <% end %>
+  </header>
+
+  <%= tag.div(flash[:alert], class: "landing__flash landing__flash--alert") if flash[:alert] %>
+  <%= tag.div(flash[:notice], class: "landing__flash landing__flash--notice") if flash[:notice] %>
+
+  <section class="landing__hero">
+    <p class="landing__eyebrow">Welcome</p>
+    <h1 class="landing__title">
+      <span data-landing-target="text"></span><span class="landing__cursor" data-landing-target="cursor" aria-hidden="true">|</span>
+    </h1>
+    <p class="landing__subtitle">
+      A simple Rails app with secure sessions. Create an account or sign in to get started.
+    </p>
+
+    <% unless authenticated? %>
+      <div class="landing__cta">
+        <%= link_to "Create account", new_user_path, class: "landing__btn landing__btn--primary landing__btn--lg" %>
+        <%= link_to "Log in", new_session_path, class: "landing__btn landing__btn--outline landing__btn--lg" %>
+      </div>
+    <% end %>
+  </section>
+</main>

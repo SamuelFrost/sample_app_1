@@ -8,3 +8,254 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root {
+  --color-bg: #0f1419;
+  --color-surface: #1a2332;
+  --color-text: #e8eef4;
+  --color-muted: #8b9cb3;
+  --color-accent: #3d9cf5;
+  --color-accent-hover: #5aadff;
+  --color-border: #2a3a4f;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: radial-gradient(ellipse at 50% 0%, #1a2a3d 0%, var(--color-bg) 55%);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Landing page */
+
+.landing {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+.landing__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.landing__logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.landing__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.landing__greeting {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.landing__hero {
+  text-align: center;
+}
+
+.landing__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+
+.landing__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  min-height: 1.2em;
+}
+
+.landing__cursor {
+  color: var(--color-accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.landing__subtitle {
+  margin: 0 auto 2.5rem;
+  max-width: 28rem;
+  font-size: 1.1rem;
+  color: var(--color-muted);
+}
+
+.landing__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.landing__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.landing__btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.landing__btn--primary:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.landing__btn--outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.landing__btn--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-hover);
+}
+
+.landing__btn--ghost {
+  background: transparent;
+  color: var(--color-muted);
+}
+
+.landing__btn--ghost:hover {
+  color: var(--color-text);
+}
+
+.landing__btn--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.landing__flash {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.landing__flash--alert {
+  background: rgba(220, 80, 80, 0.15);
+  color: #f5a0a0;
+}
+
+.landing__flash--notice {
+  background: rgba(80, 180, 120, 0.15);
+  color: #90e0b0;
+}
+
+.landing__flash ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* Auth pages (sign up, sign in) */
+
+.auth-page {
+  max-width: 24rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.auth-page h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.auth-page__back {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-page__footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.auth-form__field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.auth-form__field input {
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.auth-form__field input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.auth-form input[type="submit"] {
+  margin-top: 0.5rem;
+  width: 100%;
+}
