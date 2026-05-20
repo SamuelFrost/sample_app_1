@@ -1,5 +1,5 @@
 [tools]
-ruby    = "4.0"
+ruby    = "4.0.5"
 # node    = "22"
 # python  = "3.13"
 # go      = "1.22"
